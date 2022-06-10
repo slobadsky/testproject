@@ -1,0 +1,72 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.88.1">
+    <title>Authentification</title>
+
+    
+	<link rel='icon' href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' class='bi bi-person-circle' viewBox='0 0 16 16'>
+    <path d='M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z'/>
+    <path fill-rule='evenodd' d='M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z'/>
+  </svg>" type='image/x-icon' sizes="16x16" />
+    
+
+    
+<link href="{% static 'assets/dist/css/bootstrap.min.css' %}" rel="stylesheet">
+
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+    </style>
+
+    
+    
+    <link href="{% static 'signin.css' %}" rel="stylesheet">
+  </head>
+  <body class="text-center">
+    
+<main class="form-signin form-signin w-100 m-auto">
+  <form method="POST">
+    {% csrf_token %}
+    <img class="mb-4" src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' class='bi bi-person-circle' viewBox='0 0 16 16'>
+      <path d='M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z'/>
+      <path fill-rule='evenodd' d='M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z'/>
+    </svg>" alt="" width="72" height="57">
+    <h1 class="h3 mb-3 fw-normal">Authentification - app1</h1>
+
+    <div class="form-floating">
+      <input type="text" class="form-control" name="username" required='true' id="username" placeholder="Identifiant" value="userapp1">
+      <label for="floatingInput">Identifiant</label>
+    </div>
+    <div class="form-floating">
+      <input type="password" class="form-control" name="password" required='true' id="password" placeholder="Identifiant" value="Asdf1234/*">
+      <label for="floatingPassword">Mot de passe</label>
+    </div>
+    <button class="w-100 btn btn-lg btn-primary" type="submit">Se connecter</button>
+  </form><p>&nbsp;</p>
+  {% for message in messages %}
+  <div class="alert {{ message.tags }} alert-dismissible fade show" role="alert">
+    <strong>{{ message }}</strong>
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
+{% endfor %}
+</main>
+<script src="{% static 'assets/dist/js/bootstrap.bundle.min.js' %}" crossorigin="anonymous"></script>
+  </body>
+</html>

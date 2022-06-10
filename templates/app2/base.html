@@ -1,0 +1,187 @@
+{% load static %}
+<!doctype html>
+<html lang="en" class="h-100">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.98.0">
+    <title>{% block title %}{% endblock %}</title>
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.2/examples/sticky-footer/">
+
+    <link rel='icon' href='data:image/svg+xml, <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-sun" viewBox="0 0 16 16">
+        <path d="M8 11a3 3 0 1 1 0-6 3 3 0 0 1 0 6zm0 1a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z"/>
+      </svg>' type='image/x-icon' sizes='16x16' />
+    
+
+    
+
+<link href="{% static 'assets/dist/css/bootstrap.min.css' %}" rel="stylesheet">
+
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+
+      .b-example-divider {
+        height: 3rem;
+        background-color: rgba(0, 0, 0, .1);
+        border: solid rgba(0, 0, 0, .15);
+        border-width: 1px 0;
+        box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
+      }
+
+      .b-example-vr {
+        flex-shrink: 0;
+        width: 1.5rem;
+        height: 100vh;
+      }
+
+      .bi {
+        vertical-align: -.125em;
+        fill: currentColor;
+      }
+
+      .nav-scroller {
+        position: relative;
+        z-index: 2;
+        height: 2.75rem;
+        overflow-y: hidden;
+      }
+
+      .nav-scroller .nav {
+        display: flex;
+        flex-wrap: nowrap;
+        padding-bottom: 1rem;
+        margin-top: -1px;
+        overflow-x: auto;
+        text-align: center;
+        white-space: nowrap;
+        -webkit-overflow-scrolling: touch;
+      }
+    </style>
+
+    
+<script>
+  // Self-executing function
+  (function() {
+      'use strict';
+      window.addEventListener('load', function() {
+          // Fetch all the forms we want to apply custom Bootstrap validation styles to
+          var forms = document.getElementsByClassName('needs-validation');
+          // Loop over them and prevent submission
+          var validation = Array.prototype.filter.call(forms, function(form) {
+              form.addEventListener('submit', function(event) {
+                  if (form.checkValidity() === false) {
+                      event.preventDefault();
+                      event.stopPropagation();
+                  }
+                  form.classList.add('was-validated');
+              }, false);
+          });
+      }, false);
+  })();
+  </script>
+    <!-- Custom styles for this template -->
+	<link href="{% static 'navbar.css' %}" rel="stylesheet">
+    <link href="{% static 'sticky-footer.css' %}" rel="stylesheet">
+  </head>
+  <body class="d-flex flex-column h-100">
+    
+<!-- Begin page content -->
+<main class="flex-shrink-0">
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary" aria-label="Offcanvas navbar large">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="{% url 'app2-index-page' %}">APP 2</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar2" aria-controls="offcanvasNavbar2">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="offcanvas offcanvas-end text-white bg-primary" tabindex="-1" id="offcanvasNavbar2" aria-labelledby="offcanvasNavbar2Label">
+        <div class="offcanvas-header">
+          <h5 class="offcanvas-title text-light" id="offcanvasNavbar2Label">APP 2</h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+          <ul class="navbar-nav justify-content-end pe-3">
+            <li class="nav-item">
+              <a class="nav-link {% if active_page == 'app2-index-page' %}active{% endif %}" aria-current="page" href="{% url 'app2-index-page' %}">Mes interventions</a>
+            </li>
+            
+            <li class="nav-item">
+              <a class="nav-link" aria-current="page" href="{% url 'app2-logout-page' %}">Logout</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" aria-current="page" href="#">{{user.first_name}} {{user.last_name}}</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </nav>
+  <div class="container">
+    <div class="d-md-flex flex-md-row-reverse align-items-center justify-content-between border-bottom">
+      <a class="btn btn-sm btn-bd-light mb-3 p-0 mb-md-0 rounded-2 fw-bold" href="#" title="" id="dClock" rel="noopener" style="border:none;">
+        <script>
+          function startTime() {
+              var today=new Date();
+              var h=today.getHours();
+              var m=today.getMinutes();
+              var s=today.getSeconds();
+              var dd = today.getDate();
+              var mm = today.getMonth()+1; 
+              var yyyy = today.getFullYear();
+              if(h<10) {h='0'+h;} 
+              if(dd<10) {dd='0'+dd;} 
+              if(mm<10){mm='0'+mm;}
+    
+              m = checkTime(m);
+              s = checkTime(s);
+              document.getElementById('dClock').innerHTML = dd+'-'+mm+'-'+yyyy+' '+h+":"+m+":"+s;
+              var t = setTimeout(function(){startTime()},500);
+          }
+          
+          function checkTime(i) {
+              if (i<10) {i = "0" + i};  // add zero in front of numbers < 10
+              return i;
+          }
+          startTime();
+          </script>
+      </a>
+      <h1 class="bd-title mb-3" id="content">{% block header %}{% endblock %}</h1>
+      </div>
+    {% for message in messages %}
+<div class="alert alert-danger alert-dismissible fade show fw-bold mt-4" role="alert">
+    {{ message }}
+    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+</div>
+{% endfor %}
+    {% block content %}
+    {% endblock %}
+  </div>
+</main>
+
+<footer class="footer mt-auto py-3 bg-light border-top">
+  <div class="container">
+    <span class="text-muted">Copyright © <script>document.write(/\d{4}/.exec(Date())[0]);</script> <span style="color:#3b5998;">Mohamed Ibrahim</span>. All Rights Reserved</span>
+  </div>
+</footer>
+
+    <script src="{% static 'assets/dist/js/bootstrap.bundle.min.js' %}"></script>
+
+
+
+    
+  </body>
+</html>
