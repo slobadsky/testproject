@@ -5,5 +5,5 @@
 {% block header %}App 2{% endblock %}
 {% block content %}
 <p class="mt-5">{{test}}</p>
-<p class="mt-5">{{op.group_name}}</p>
+<p class="mt-5">{% for op in ops %}{{op}}{% endfor %}</p>
 {% endblock %}
